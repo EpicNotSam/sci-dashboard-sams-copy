@@ -1,0 +1,61 @@
+{% extends "ClassroomFinder.html" %}
+ 
+{% block results %}
+
+Your choices were {{building}} and room {{room}}
+
+ <!-- Section for displaying building and room details -->
+ <div id="details-section">
+    <img id="building-image" src="" alt="Building Image" style="display: none;">
+    <img id="floor-map" src="" alt="Floor Map" style="display: none;">
+    <div id="embedded-map" style="display: none;">
+        <!-- Embed map iframe will go here -->
+    </div>
+
+<!-- JavaScript for dropdowns and content display -->
+<script>
+const roomsForBuilding = {
+'building1': ['Room 101', 'Room 102'],
+'building2': ['Room 201', 'Room 202']
+// ... add more as needed
+};
+
+function updateRooms() {
+const buildingDropdown = document.getElementById('building');
+const roomDropdown = document.getElementById('room');
+const selectedBuilding = buildingDropdown.value;
+
+roomDropdown.innerHTML = "";  // Clear previous rooms
+
+if (roomsForBuilding[selectedBuilding]) {
+    for (let room of roomsForBuilding[selectedBuilding]) {
+        let option = document.createElement('option');
+        option.value = room;
+        option.innerText = room;
+        roomDropdown.appendChild(option);
+    }
+}
+}
+
+function showDetails() {
+const buildingImage = document.getElementById('building-image');
+const floorMap = document.getElementById('floor-map');
+const embeddedMap = document.getElementById('embedded-map');
+
+// Sample: You can set images and embedded maps based on the selected building
+// This is just an illustration and should be adapted for actual data and resources
+if (document.getElementById('building').value === 'building1') {
+    buildingImage.src = 'path_to_building1_image.jpg';
+    buildingImage.style.display = 'block';
+
+    floorMap.src = 'path_to_building1_floor_map.jpg';
+    floorMap.style.display = 'block';
+
+    embeddedMap.innerHTML = '<iframe src="URL_to_building1_map"></iframe>';
+    embeddedMap.style.display = 'block';
+}
+// ... Add more conditions for other buildings
+}
+</script>
+
+{%endblock%}

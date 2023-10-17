@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block body %}
+<main>
+    <h1>Equipment Search</h1>
+    
+    <form action="/Equipment/" method="POST" id="search-form">
+        <!-- might want to change these hardcoded urls into urlfor-->
+        <!-- Dropdown for buildings -->
+        <div class="dropdown-section">
+            <label for="building">Building:</label>
+            <select id="building" name="building">
+                <option value="">Select Building</option>
+                <option value="Information Science Building">Information Science Building</option>
+                <option value="Sennott Square">Sennot Square</option>
+                <option value="Bellefield">Bellefield</option>
+                <!-- Add more buildings as options -->
+            </select>
+        </div>
+
+        <!-- Dropdown for rooms -->
+        <div class="dropdown-section">
+            <label for="room">Room:</label>
+            <select id="room" name="room">
+                <option value="">Select Room</option>
+                <option value="room1">Room 1</option>
+                <option value="room2">Room 2</option>
+                <!-- Add more rooms as options -->
+            </select>
+        </div>
+
+        <!-- Dropdown for sorting -->
+        <div class="dropdown-section">
+            <label for="sort">Sort By:</label>
+            <select id="sort" name="sort">
+                <option value="name_asc">Name (A-Z)</option>
+                <option value="name_desc">Name (Z-A)</option>
+                <option value="recent">Most Recent</option>
+                <!-- Add more sorting options as required -->
+            </select>
+        </div>
+        
+        <!-- Submit button -->
+        <div>
+            <input type="submit" value="Search" />
+        </div>
+    </form>
+    
+    <!-- You can add a section here for displaying search results once the form is submitted -->
+    {% block results%} {%endblock%}
+
+</main>
+
+{% endblock %}

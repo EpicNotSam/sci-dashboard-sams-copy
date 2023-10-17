@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SCI Virtual Dashboard for Equipment Management and Inventory</title>
+  <link rel="stylesheet" href="HomePage.css" />
+</head>
+
+<body>
+  <div id="container">
+    <header id="header" class="clear-fix">
+      <div id="banner" class="clear-fix">
+        <table>
+          <tr>
+            <td style="padding-left: 50px; padding-right: 15px">
+              <a href="http://www.pitt.edu">
+                <img
+                  class="img-responsive pitt"
+                  src="https://cdn.glitch.global/842bf4c7-8e11-4356-813d-59299613b0c0/pittLogo2.png?v=1696380624481"
+                  height="60px"
+                  alt="University of Pittsburgh"
+                />
+              </a>
+            </td>
+            <td>
+              <div id="spanVerticalLine"></div>
+              <div id="title">
+                SCI Virtual Dashboard for Equipment Management and Inventory
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <nav id="navigation-bar">
+        <ul class="sf-menu">
+          <li><a href="HomePage.html">HOMEPAGE</a></li>
+          <li><a href="Equipment.html">EQUIPMENT-SEARCH-RESERVATION</a></li>
+          <li><a href="Room reservation.html">ROOM RESERVATION</a></li>
+          <li><a href="Classroom Finder.html">CLASSROOM FINDER</a></li>
+          <li><a href="MyRentals.html">MY RENTALS</a></li>
+        </ul>
+      </nav>
+    </header>
+
+        <main>
+            <h1>Equipment Search</h1>
+            
+            <form action="your-search-endpoint" method="GET" id="search-form">
+                <!-- Dropdown for buildings -->
+                <div class="dropdown-section">
+                    <label for="building">Building:</label>
+                    <select id="building" name="building">
+                        <option value="">Select Building</option>
+                        <option value="Information Science Building">Information Science Building</option>
+                        <option value="Sennott Square">Sennot Square</option>
+                        <option value="Bellefield">Bellefield</option>
+                        <!-- Add more buildings as options -->
+                    </select>
+                </div>
+
+                <!-- Dropdown for rooms -->
+                <div class="dropdown-section">
+                    <label for="room">Room:</label>
+                    <select id="room" name="room">
+                        <option value="">Select Room</option>
+                        <option value="room1">Room 1</option>
+                        <option value="room2">Room 2</option>
+                        <!-- Add more rooms as options -->
+                    </select>
+                </div>
+
+                <!-- Dropdown for sorting -->
+                <div class="dropdown-section">
+                    <label for="sort">Sort By:</label>
+                    <select id="sort" name="sort">
+                        <option value="name_asc">Name (A-Z)</option>
+                        <option value="name_desc">Name (Z-A)</option>
+                        <option value="recent">Most Recent</option>
+                        <!-- Add more sorting options as required -->
+                    </select>
+                </div>
+                
+                <!-- Submit button -->
+                <div>
+                    <input type="submit" value="Search" />
+                </div>
+            </form>
+            
+            <!-- You can add a section here for displaying search results once the form is submitted -->
+        </main>
+
+        <footer>
+            <p>&copy; 2023 SCI Virtual Dashboard</p>
+          </footer>
+
+    

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SCI Virtual Dashboard for Equipment Management and Inventory</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/HomePage.css') }}" />
+</head>
+
+<body>
+  <div id="container">
+    <header id="header" class="clear-fix">
+      <div id="banner" class="clear-fix">
+        <table>
+          <tr>
+            <div id = "logoContainer">
+            <td style="padding-left: 50px; padding-right: 15px">
+            
+              <a href="http://www.pitt.edu">
+                <img
+                  class="img-responsive pitt"
+                  src="https://cdn.glitch.global/842bf4c7-8e11-4356-813d-59299613b0c0/pittLogo2.png?v=1696380624481"
+                  height="60px"
+                  alt="University of Pittsburgh"
+                />
+              </a>
+            </td>
+            <td>
+              <div class = "spanVerticalLine"></div>
+            </div>
+            <div id="filler"></div>
+            <div id = "titleContainer">
+              <div id="title">
+                SCI Virtual Dashboard for Equipment Management and Inventory
+              </div>
+            </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <nav id="navigation-bar">
+        <ul class="sf-menu">
+          <li><a href="/home/">HOMEPAGE</a></li>
+          <li><a href="/Equipment/">EQUIPMENT-SEARCH-RESERVATION</a></li>
+          <li><a href="/RoomReservation/">ROOM RESERVATION</a></li>
+          <li><a href="/ClassroomFinder/">CLASSROOM FINDER</a></li>
+          <li><a href="/MyRentals/">MY RENTALS</a></li>
+          {# for the my rentals page we should probably also be logged in, and if we do not have #}
+          {# a username yet then the page should redirect to the login page, but since we dont have that yet, #}
+          {# I am just having it redirect to a generic myRentals page #}
+        </ul>
+      </nav>
+    </header>
+     
+    {% block body %} {% endblock %}
+
+      <footer>
+        <p>&copy; 2023 SCI Virtual Dashboard</p>
+      </footer>
+
+      </html>

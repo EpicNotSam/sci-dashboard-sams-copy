@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SCI Virtual Dashboard for Equipment Management and Inventory</title>
+  <link rel="stylesheet" href="HomePage.css" />
+</head>
+
+<body>
+  <div id="container">
+    <header id="header" class="clear-fix">
+      <div id="banner" class="clear-fix">
+        <table>
+          <tr>
+            <td style="padding-left: 50px; padding-right: 15px">
+              <a href="http://www.pitt.edu">
+                <img
+                  class="img-responsive pitt"
+                  src="https://cdn.glitch.global/842bf4c7-8e11-4356-813d-59299613b0c0/pittLogo2.png?v=1696380624481"
+                  height="60px"
+                  alt="University of Pittsburgh"
+                />
+              </a>
+            </td>
+            <td>
+              <div id="spanVerticalLine"></div>
+              <div id="title">
+                SCI Virtual Dashboard for Equipment Management and Inventory
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <nav id="navigation-bar">
+        <ul class="sf-menu">
+          <li><a href="HomePage.html">HOMEPAGE</a></li>
+          <li><a href="Equipment.html">EQUIPMENT-SEARCH-RESERVATION</a></li>
+          <li><a href="Room reservation.html">ROOM RESERVATION</a></li>
+          <li><a href="Classroom Finder.html">CLASSROOM FINDER</a></li>
+          <li><a href="MyRentals.html">MY RENTALS</a></li>
+        </ul>
+      </nav>
+    </header>
+
+      <main>
+            <h1>Classroom Finder</h1>
+
+            <form id="classroom-finder-form">
+                <!-- Dropdown for buildings -->
+                <div class="dropdown-section">
+                    <label for="building">Building:</label>
+                    <select id="building" name="building" onchange="updateRooms()">
+                        <option value="">Select Building</option>
+                        <option value="Information Science Building">Information Science Building</option>
+                        <option value="Sennott Square">Sennot Square</option>
+                        <option value="Bellefield">Bellefield</option>
+                        <!-- Add more buildings as needed -->
+                    </select>
+                </div>
+
+                <!-- Dropdown for room numbers -->
+                <div class="dropdown-section">
+                    <label for="room">Room Number:</label>
+                    <select id="room" name="room" onchange="showDetails()">
+                        <!-- Rooms will be dynamically populated based on the building -->
+                    </select>
+                </div>
+            </form>
+
+            <!-- Section for displaying building and room details -->
+            <div id="details-section">
+                <img id="building-image" src="" alt="Building Image" style="display: none;">
+                <img id="floor-map" src="" alt="Floor Map" style="display: none;">
+                <div id="embedded-map" style="display: none;">
+                    <!-- Embed map iframe will go here -->
+                </div>
+            </div>
+        </main>
+
+        <!-- Add footer here -->
+    </div>
+
+    <!-- JavaScript for dropdowns and content display -->
+    <script>
+        const roomsForBuilding = {
+            'building1': ['Room 101', 'Room 102'],
+            'building2': ['Room 201', 'Room 202']
+            // ... add more as needed
+        };
+
+        function updateRooms() {
+            const buildingDropdown = document.getElementById('building');
+            const roomDropdown = document.getElementById('room');
+            const selectedBuilding = buildingDropdown.value;
+
+            roomDropdown.innerHTML = "";  // Clear previous rooms
+
+            if (roomsForBuilding[selectedBuilding]) {
+                for (let room of roomsForBuilding[selectedBuilding]) {
+                    let option = document.createElement('option');
+                    option.value = room;
+                    option.innerText = room;
+                    roomDropdown.appendChild(option);
+                }
+            }
+        }
+
+        function showDetails() {
+            const buildingImage = document.getElementById('building-image');
+            const floorMap = document.getElementById('floor-map');
+            const embeddedMap = document.getElementById('embedded-map');
+
+            // Sample: You can set images and embedded maps based on the selected building
+            // This is just an illustration and should be adapted for actual data and resources
+            if (document.getElementById('building').value === 'building1') {
+                buildingImage.src = 'path_to_building1_image.jpg';
+                buildingImage.style.display = 'block';
+
+                floorMap.src = 'path_to_building1_floor_map.jpg';
+                floorMap.style.display = 'block';
+
+                embeddedMap.innerHTML = '<iframe src="URL_to_building1_map"></iframe>';
+                embeddedMap.style.display = 'block';
+            }
+            // ... Add more conditions for other buildings
+        }
+    </script>
+</body>
+
+</html>

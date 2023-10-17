@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SCI Virtual Dashboard for Equipment Management and Inventory</title>
+  <link rel="stylesheet" href="HomePage.css" />
+</head>
+
+<body>
+  <div id="container">
+    <header id="header" class="clear-fix">
+      <div id="banner" class="clear-fix">
+        <table>
+          <tr>
+            <td style="padding-left: 50px; padding-right: 15px">
+              <a href="http://www.pitt.edu">
+                <img
+                  class="img-responsive pitt"
+                  src="https://cdn.glitch.global/842bf4c7-8e11-4356-813d-59299613b0c0/pittLogo2.png?v=1696380624481"
+                  height="60px"
+                  alt="University of Pittsburgh"
+                />
+              </a>
+            </td>
+            <td>
+              <div id="spanVerticalLine"></div>
+              <div id="title">
+                SCI Virtual Dashboard for Equipment Management and Inventory
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <nav id="navigation-bar">
+        <ul class="sf-menu">
+          <li><a href="HomePage.html">HOMEPAGE</a></li>
+          <li><a href="Equipment.html">EQUIPMENT-SEARCH-RESERVATION</a></li>
+          <li><a href="Room reservation.html">ROOM RESERVATION</a></li>
+          <li><a href="Classroom Finder.html">CLASSROOM FINDER</a></li>
+          <li><a href="MyRentals.html">MY RENTALS</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+            <h1>Room Reservation</h1>
+            
+            <form action="your-reservation-endpoint" method="GET" id="reservation-form">
+                <!-- Dropdown for buildings -->
+                <div class="dropdown-section">
+                    <label for="building">Building:</label>
+                    <select id="building" name="building">
+                        <option value="">Select Building</option>
+                        <option value="Information Science Building">Information Science Building</option>
+                        <option value="Sennott Square">Sennot Square</option>
+                        <option value="Bellefield">Bellefield</option>
+                        <!-- Add more buildings as options -->
+                    </select>
+                </div>
+
+                <!-- Dropdown for room type -->
+                <div class="dropdown-section">
+                    <label for="roomType">Room Type:</label>
+                    <select id="roomType" name="roomType">
+                        <option value="">Select Room Type</option>
+                        <option value="conference">Conference Room</option>
+                        <option value="lab">Lab</option>
+                        <option value="study room">Study Room</option>
+                        <!-- Add more room types as options -->
+                    </select>
+                </div>
+
+                <!-- Input for date -->
+                <div class="dropdown-section">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date">
+                </div>
+
+                 <!-- Dropdown for time -->
+                <div class="dropdown-section">
+                    <label for="time">Time:</label>
+                    <select id="time" name="time">
+                        <option value="">Select Time</option>
+                        <option value="09:00">09:00 AM</option>
+                        <option value="10:00">10:00 AM</option>
+                        <!-- Add more times as options -->
+                    </select>
+                </div>
+                
+                <!-- Submit button -->
+                <div>
+                    <input type="submit" value="Check Availability" />
+                </div>
+            </form>
+            
+            <!-- Section for displaying reservation results -->
+            <section id="reservation-results">
+                <!-- This will be populated with the search results or with an appropriate message -->
+            </section>
+        </main>
+</body>
+</html>
+
+        <footer>
+            <p>&copy; 2023 SCI Virtual Dashboard</p>
+          </footer>

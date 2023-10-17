@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <main>
+            <h1>Room Reservation</h1>
+            
+            <form action="/RoomReservation/" method="POST" id="reservation-form">
+                <!-- Dropdown for buildings -->
+                <div class="dropdown-section">
+                    <label for="building">Building:</label>
+                    <select id="building" name="building">
+                        <option value="">Select Building</option>
+                        <option value="Information Science Building">Information Science Building</option>
+                        <option value="Sennott Square">Sennot Square</option>
+                        <option value="Bellefield">Bellefield</option>
+                        <!-- Add more buildings as options -->
+                    </select>
+                </div>
+
+                <!-- Dropdown for room type -->
+                <div class="dropdown-section">
+                    <label for="roomType">Room Type:</label>
+                    <select id="roomType" name="roomType">
+                        <option value="">Select Room Type</option>
+                        <option value="conference">Conference Room</option>
+                        <option value="lab">Lab</option>
+                        <option value="study room">Study Room</option>
+                        <!-- Add more room types as options -->
+                    </select>
+                </div>
+
+                <!-- Input for date -->
+                <div class="dropdown-section">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date">
+                </div>
+
+                 <!-- Dropdown for time -->
+                <div class="dropdown-section">
+                    <label for="time">Time:</label>
+                    <select id="time" name="time">
+                        <option value="">Select Time</option>
+                        <option value="09:00">09:00 AM</option>
+                        <option value="10:00">10:00 AM</option>
+                        <!-- Add more times as options -->
+                    </select>
+                </div>
+                
+                <!-- Submit button -->
+                <div>
+                    <input type="submit" value="Check Availability" />
+                </div>
+            </form>
+            
+            <!-- Section for displaying reservation results -->
+            {% block results %} {% endblock %}
+        </main>
+        {% endblock %}

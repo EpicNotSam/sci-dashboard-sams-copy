@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SCI Virtual Dashboard for Equipment Management and Inventory</title>
+  <link rel="stylesheet" href="HomePage.css" />
+</head>
+
+<body>
+  <div id="container">
+    <header id="header" class="clear-fix">
+      <div id="banner" class="clear-fix">
+        <table>
+          <tr>
+            <td style="padding-left: 50px; padding-right: 15px">
+              <a href="http://www.pitt.edu">
+                <img
+                  class="img-responsive pitt"
+                  src="https://cdn.glitch.global/842bf4c7-8e11-4356-813d-59299613b0c0/pittLogo2.png?v=1696380624481"
+                  height="60px"
+                  alt="University of Pittsburgh"
+                />
+              </a>
+            </td>
+            <td>
+              <div id="spanVerticalLine"></div>
+              <div id="title">
+                SCI Virtual Dashboard for Equipment Management and Inventory
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <nav id="navigation-bar">
+        <ul class="sf-menu">
+          <li><a href="HomePage.html">HOMEPAGE</a></li>
+          <li><a href="Equipment.html">EQUIPMENT-SEARCH-RESERVATION</a></li>
+          <li><a href="Room reservation.html">ROOM RESERVATION</a></li>
+          <li><a href="Classroom Finder.html">CLASSROOM FINDER</a></li>
+          <li><a href="MyRentals.html">MY RENTALS</a></li>
+        </ul>
+      </nav>
+    </header>
+
+        <main>
+            <h1>My Rentals</h1>
+            
+            <!-- Filter or search bar -->
+            <input type="text" id="search-bar" placeholder="Search rentals..." onkeyup="filterRentals()">
+            
+            <table id="rentals-table">
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Date Rented</th>
+                        <th>Return Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                        <!-- Add more columns as needed -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Sample rental rows -->
+                    <tr>
+                        <td>Laptop Model XYZ</td>
+                        <td>2023-10-01</td>
+                        <td class="overdue">2023-10-10</td>
+                        <td>Out for Rent</td>
+                        <td>
+                            <a href="#">Extend Rental</a> | 
+                            <a href="#">Return Item</a> | 
+                            <a href="#">View Details</a>
+                        </td>
+                    </tr>
+                    <!-- ... Repeat rows as needed ... -->
+                </tbody>
+            </table>
+            
+            <!-- Pagination (just a simple one for illustration) -->
+            <div id="pagination">
+                <a href="#">Prev</a>
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <!-- ... Add more pages as needed ... -->
+                <a href="#">Next</a>
+            </div>
+        </main>
+
+        <!-- Add your footer here -->
+    </div>
+
+    <script>
+        function filterRentals() {
+            const searchBar = document.getElementById('search-bar');
+            const table = document.getElementById('rentals-table');
+            const rows = table.querySelectorAll('tbody tr');
+            
+            const query = searchBar.value.toLowerCase();
+            
+            rows.forEach(row => {
+                const cells = Array.from(row.children);
+                if (cells.some(cell => cell.textContent.toLowerCase().includes(query))) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

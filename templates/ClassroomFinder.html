@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block body %}
+<main>
+    <h1>Classroom Finder</h1>
+
+    <form action="/ClassroomFinder/" method="POST" id="classroom-finder-form">
+        <!-- Dropdown for buildings -->
+        <div class="dropdown-section">
+            <label for="building">Building:</label>
+            <select id="building" name="building" onchange="updateRooms()">
+                <option value="">Select Building</option>
+                <option value="Information Science Building">Information Science Building</option>
+                <option value="Sennott Square">Sennot Square</option>
+                <option value="Bellefield">Bellefield</option>
+                <!-- Add more buildings as needed -->
+            </select>
+        </div>
+
+        <!-- Dropdown for room numbers -->
+        <div class="dropdown-section">
+            <label for="room">Room Number:</label>
+            <select id="room" name="room" onchange="showDetails()">
+                <!-- Rooms will be dynamically populated based on the building -->
+            </select>
+        </div>
+        <div>
+            <input type="submit" value="Search" />
+        </div>
+    </form>
+    {% block results %} {% endblock %}
+</main>
+{% endblock %}
